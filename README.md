@@ -88,7 +88,7 @@ Target //myapp:server successfully built!
 
 
 
-You can see these recipes and more in the [Redwood Cookbook](docs/cookbook/intro.md), or learn the basics in the [Redwood Tutorial](docs/rtutorial/intro.md)
+You can see these recipes and more in the [Redwood Cookbook](docs/cookbook/intro.md), or learn the basics in the [Redwood Tutorial](docs/tutorial/intro.md)
 
 ## Conceptual Model
 
