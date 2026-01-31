@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Datalog",
+  "scopeName": "source.datalog",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#constants" },
+    { "include": "#variables" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [{ "name": "comment.line.percentage", "match": "#.*$" }]
+    },
+    "toolnames": {
+      "patterns": [{
+        "name": "keyword.other.unit",
+        "match": "@[a-zA-Z0-9_-]+"
+      }]
+    },
+    "targets": {
+      "patterns": [{
+        "name": "string.regexp",
+        "match": "//[a-zA-Z0-9._/-]*(:[a-zA-Z0-9._-]+)?(//[a-zA-Z0-9._/-]+(:[a-zA-Z0-9._-]+)?)?"
+      },
+      {
+        "name": "string.regexp",
+        "match": "//[.a-zA-Z0-9/_]*/\\.\\.\\."
+      }]
+    },
+    "strings": {
+      "name": "string.quoted.double.datalog",
+      "begin": "\"", "end": "\"",
+      "patterns": [{ "name": "constant.character.escape.datalog", "match": "\\\\." }]
+    },
+    "constants": {
+      "patterns": [{
+        "name": "entity.name.function.datalog",
+        "match": "\\b[a-z][a-zA-Z0-9_]*\\b(?=\\()"
+      }]
+    },
+    "variables": {
+      "patterns": [{
+        "name": "variable.other.datalog",
+        "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+      }]
+    },
+    "operators": {
+      "patterns": [{
+        "name": "keyword.operator.logical.datalog",
+        "match": ":-|\\.|,|NOT|not|lt|gt|eq|ne|=|!="
+      }]
+    },
+    "functions": {
+      "patterns": [{
+        "name": "support.function.builtin.datalog",
+        "match": "\\b(min|max|prefix|suffix)\\b"
+      }]
+    }
+  }
+}

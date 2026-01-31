@@ -1,0 +1,23 @@
+{
+    "name": "redwood-datalog",
+    "version": "0.1.0",
+    "displayName": "Redwood Datalog",
+    "description": "Redwood Datalog Language Server Protocol support",
+    "engines" : {
+        "vscode": "^1.50.0"
+    },
+    "contributes": {
+        "languages": [{
+            "id": "datalog",
+            "aliases": ["Datalog", "datalog"],
+            "extensions": [".datlog"],
+            "filenames": ["BUILD.datalog"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "datalog",
+            "scopeName": "source.datalog",
+            "path": "./syntaxes/datalog.tmLanguage.json"
+        }]
+    }
+}
