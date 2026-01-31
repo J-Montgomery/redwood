@@ -4,45 +4,53 @@
   "scopeName": "source.datalog",
   "patterns": [
     { "include": "#comments" },
+    { "include": "#targets" },
+    { "include": "#builtins" },
+    { "include": "#toolnames" },
     { "include": "#strings" },
-    { "include": "#constants" },
+    { "include": "#predicates" },
     { "include": "#variables" },
     { "include": "#operators" }
   ],
   "repository": {
     "comments": {
-      "patterns": [{ "name": "comment.line.percentage", "match": "#.*$" }]
+      "patterns": [{ "name": "comment.line.number-sign", "match": "#.*$" }]
+    },
+    "builtins": {
+      "patterns": [{
+        "name": "keyword.control.directive.datalog",
+        "match": "\\b(min|max|prefix|suffix|resolve|sources|deps|license|attr|target|kind|system_tool)\\b"
+      }]
     },
     "toolnames": {
       "patterns": [{
-        "name": "keyword.other.unit",
+        "name": "constant.other.symbol.datalog",
         "match": "@[a-zA-Z0-9_-]+"
       }]
     },
     "targets": {
-      "patterns": [{
-        "name": "string.regexp",
-        "match": "//[a-zA-Z0-9._/-]*(:[a-zA-Z0-9._-]+)?(//[a-zA-Z0-9._/-]+(:[a-zA-Z0-9._-]+)?)?"
-      },
-      {
-        "name": "string.regexp",
-        "match": "//[.a-zA-Z0-9/_]*/\\.\\.\\."
-      }]
+      "patterns": [
+        {
+          "name": "string.regexp.datalog",
+          "match": "\"?//[a-zA-Z0-9._/-]*(:[a-zA-Z0-9._-]+)?(//[a-zA-Z0-9._/-]+(:[a-zA-Z0-9._-]+)?)?\"?"
+        }
+      ]
     },
     "strings": {
       "name": "string.quoted.double.datalog",
-      "begin": "\"", "end": "\"",
+      "begin": "\"",
+      "end": "\"",
       "patterns": [{ "name": "constant.character.escape.datalog", "match": "\\\\." }]
     },
-    "constants": {
+    "predicates": {
       "patterns": [{
         "name": "entity.name.function.datalog",
-        "match": "\\b[a-z][a-zA-Z0-9_]*\\b(?=\\()"
+        "match": "\\b[a-z][a-zA-Z0-9_]*\\b(?=\\s*\\()"
       }]
     },
     "variables": {
       "patterns": [{
-        "name": "variable.other.datalog",
+        "name": "variable.other.readwrite.datalog",
         "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
       }]
     },
@@ -50,12 +58,6 @@
       "patterns": [{
         "name": "keyword.operator.logical.datalog",
         "match": ":-|\\.|,|NOT|not|lt|gt|eq|ne|=|!="
-      }]
-    },
-    "functions": {
-      "patterns": [{
-        "name": "support.function.builtin.datalog",
-        "match": "\\b(min|max|prefix|suffix)\\b"
       }]
     }
   }
