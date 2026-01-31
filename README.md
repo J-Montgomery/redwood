@@ -1,16 +1,18 @@
 # Redwood build system
 
-Redwood is an experimental build system based around Datalog with these principles:
+Redwood is an experimental build system based around Datalog. The project
+goal is to explore whether a scalable build system can be made as powerful as
+existing tools like Bazel without the burdens they bring.
 
-1. Empower developers
-    - Override Redwood's opinions easily
-2. Small enough to understand, powerful enough to use
-    - One consistent language
-    - Simple conceptual model
-3. Respect developer time
-    - Redwood starts fast
-    - Redwood plans fast
-    - Redwood builds fast
+You should be able to:
+* Override Redwood's opinions easily
+* Learn only one simple & consistent language
+
+And Redwood should:
+* start fast
+* plan fast
+* build fast
+* Be correct
 
 ## Why It's Cool
 ----
